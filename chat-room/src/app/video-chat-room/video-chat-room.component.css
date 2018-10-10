@@ -1,5 +1,6 @@
 .center{
     text-align: center;
+    margin: 91px;
  }
  p{
      text-align: center
@@ -33,5 +34,21 @@ border: 2px solid rgb(68, 68, 68);
     background-color: rgb(112, 0, 0);
 }
 .w3-card-4{
-    height: 630px;
+    height: 450px;
+}
+.w3-container{
+    width: 670px;
+}
+.w3-container1{
+    width: 575px;
+    
+}
+footer{
+    background-color: aliceblue;
+    width: 1350px;
+    height: 50px;
+    text-align: center;
+    padding-bottom: 3%;
+    background-color: rgb(155, 155, 155);
+    font-size: 20px;
 }
