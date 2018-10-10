@@ -48,13 +48,7 @@ onSubmit(){
               this.router.navigate([this.returnUrl]);
           },
           error => {
-              
               this.loading = false;
           });
-
-
-    
- 
         }
-  
       }

@@ -12,6 +12,7 @@ import { fakeBackendProvider } from '../app/helpers/fake-backend';
 import { UserService } from '../app/services/user.service';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor} from './helpers/error.interceptor';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { ErrorInterceptor} from './helpers/error.interceptor';
     WebcamModule,
     routing,
   ],
-  providers: [AuthenticationService,fakeBackendProvider,UserService,
+  providers: [AuthenticationService,fakeBackendProvider,UserService, AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },],
   bootstrap: [AppComponent]
