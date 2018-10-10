@@ -1,5 +1,6 @@
 .center{
     text-align: center;
+    margin: 91px;
  }
  p{
      text-align: center
@@ -35,3 +36,11 @@ border: 2px solid rgb(68, 68, 68);
 .w3-card-4{
     height: 450px;
 }
+.w3-container{
+    width: 670px;
+}
+.w3-container1{
+    width: 575px;
+    
+}
+
