@@ -4,9 +4,12 @@
 
         <div class="w3-container">
                 <div>
-                       <webcam *ngIf="showWebcam"></webcam>
+                       <webcam [height]="600" [width]="600" *ngIf="showWebcam"></webcam>
                 </div>
-                
+            </div>
+        </div>
+        <div class="w3-card-44 w3-dark-grey">
+            <div class="w3-container">
                 <div class="form-check-inline">
                     <button class="firstButton" (click)="start()">Allow Video</button>
                     <button class="secondButton" (click)="stop()">Stop Video</button>
@@ -15,13 +18,12 @@
                     <i class="fa fa-comments" style="font-size:35px"><input type="text" placeholder="Message"></i>
                     <button style="font-size:39px"><i class="fa fa-mail-forward" style="font-size:36px"></i></button>
                 </div>
-                
-     </div>
+        </div>
         </div>
         <div class="center">
             <p><b>@ Copyright 2018. Engineering Software LAB</b></p>
             <i class="fa fa-facebook-square" style="font-size:36px " > </i> 
-            <i class="fa fa-github" style="font-size:36px " > </i> 
+            <a href="https://github.com/sasamaster/chat-room-application/tree/develop"><i class="fa fa-github" style="font-size:36px " > </i></a>
             <i class="fa fa-instagram" style="font-size:36px " > </i> 
             <i class="fa fa-linkedin-square" style="font-size:36px " > </i> 
             <i class="fa fa-twitter-square" style="font-size:36px " > </i> 
