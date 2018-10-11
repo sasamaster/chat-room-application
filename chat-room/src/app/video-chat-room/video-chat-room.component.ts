@@ -16,12 +16,15 @@ export class VideoChatRoomComponent implements OnInit {
        
       });
   }
+  expanded = false;
   start() {
     this.showWebcam = true;
+    this.expanded = false; 
   }
    
     stop() {
       this.showWebcam = false;
+      this.expanded = true;
     }
     public toggleWebcam(): void {
       this.showWebcam = !this.showWebcam;

@@ -50,9 +50,9 @@ onSubmit(){
   this.authenticationService.login(this.f.username.value, this.f.password.value)
       .pipe(first())
       .subscribe(
-          data  => {
-              this.router.navigateByUrl(this.return);
-              
+          data => {
+              this.router.navigate([this.return]);
+             
           },
           error => {
               this.loading = false;
