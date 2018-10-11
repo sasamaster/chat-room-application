@@ -13,12 +13,14 @@ import { UserService } from '../app/services/user.service';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor} from './helpers/error.interceptor';
 import { AuthGuard } from './guards/auth.guard';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VideoChatRoomComponent,
     LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
