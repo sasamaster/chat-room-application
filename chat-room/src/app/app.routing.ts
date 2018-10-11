@@ -7,13 +7,13 @@ import { AuthGuard } from './guards';
 
 const appRoutes: Routes = [
     
-    { path: 'home', component: HomeComponent, canActivate: [AuthGuard]} ,
+    { path: '', component: HomeComponent, canActivate: [AuthGuard]} ,
     { path: 'login', component: LoginComponent },
     { path: 'chat-room', component: VideoChatRoomComponent, canActivate: [AuthGuard]},
 
     // otherwise redirect to home
      { path: '**', redirectTo: ''},
-     { path: '', redirectTo: '/login', pathMatch:'full' }
+    
     
 ];
 

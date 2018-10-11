@@ -13,14 +13,16 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
-  returnUrl: string;
+  return: string;
 
   constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,) { }
 
-  ngOnInit() {this.loginForm = this.formBuilder.group({
+  ngOnInit() {
+    
+  this.loginForm = this.formBuilder.group({
     username: ['', Validators.required],
     password: ['', Validators.required]
   });
@@ -29,7 +31,8 @@ export class LoginComponent implements OnInit {
 this.authenticationService.logout();
 
 // get return url from route parameters or default to '/'
-this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+this.return = this.route.snapshot.queryParams['return'] || '/chat-room';
+
 }
 get f() { return this.loginForm.controls; }
 onSubmit(){
@@ -37,15 +40,19 @@ onSubmit(){
 
   // stop here if form is invalid
   if (this.loginForm.invalid) {
-      return;
+    console.log('Form is invalid');
+      return;     
   }
 
   this.loading = true;
+  console.log('Subscribed to login');
+
   this.authenticationService.login(this.f.username.value, this.f.password.value)
       .pipe(first())
       .subscribe(
-          data => {
-              this.router.navigate([this.returnUrl]);
+          data  => {
+              this.router.navigateByUrl(this.return);
+              
           },
           error => {
               this.loading = false;
