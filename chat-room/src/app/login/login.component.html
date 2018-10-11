@@ -6,7 +6,7 @@
                 <div>
                         <h1>Log In:</h1>
                     </div>
-          <img src="./assets/images/17241-200.png" alt="Avatar" style="width:20%">
+          <img src="./assets/images/15012_the-boss-baby-prev.png" alt="Avatar" style="width:20%">
 
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
@@ -14,7 +14,7 @@
                 <label>Username:</label><br/><input type="text" formControlName="username" 
                 class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" required><br/>
                 <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                        <div *ngIf="f.username.errors.required">Username is required</div>
+                        <div *ngIf="f.username.errors.required"><span class="message">Username is required !</span></div>
                     </div>
                 </div>
 
@@ -22,17 +22,19 @@
                 <label>Password:</label><br/><input type="password" formControlName="password" 
                 class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"  required><br/>
                 <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                        <div *ngIf="f.password.errors.required">Password is required</div>
+                        <div *ngIf="f.password.errors.required"><span class="message">Password is required !</span></div>
                     </div>
               
                 
             </div>
        
             <br/>
+            <div class="form-group">
         <div class="row">
-          <button class="button"><b>Login</b></button>
+          <button class="button" [disabled]="loading"><b>Login</b></button>
           <p><a href="">Forgot Password ?</a></p>
         </div>
+           </div>
         </form>
         
      </div>

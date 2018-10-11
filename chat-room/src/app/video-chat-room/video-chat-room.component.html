@@ -7,6 +7,9 @@
    <div class="w3-container">
         <div>
                <webcam [height]="600" [width]="600" *ngIf="showWebcam"></webcam>
+               <div class="w3-center">
+               <img src="./assets/images/user_3_Artboard_1-512.png" alt="Avatar" style="width:65%" *ngIf="expanded">
+                </div>
         </div>
     </div>
 </div>
@@ -14,8 +17,8 @@
     <div class="w3-card-44 w3-dark-grey">
         <div class="w3-container">
                 <div class="form-check-inline">
-                    <button class="firstButton" (click)="start()">Allow Video</button>
-                    <button class="secondButton" (click)="stop()">Stop Video</button>
+                    <button class="firstButton" (click)="start()">Allow Camera</button>
+                    <button class="secondButton" (click)="stop()">Exit Camera</button>
                 </div>
             <div class="form-check-inline">
                     <i class="fa fa-comments" style="font-size:35px"><input type="text" placeholder="Message"></i>
@@ -25,9 +28,9 @@
     </div>
     </div>
     <div class="w3-padding w3-display-topright">
-            <div class="w3-card-4 w3-dark-grey">
+            <div class="w3-card-4 ">
                <div class="w3-container1">
-                   
+               
                 </div>
             </div>
             
