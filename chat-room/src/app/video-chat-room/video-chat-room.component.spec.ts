@@ -8,9 +8,9 @@ describe('VideoChatRoomComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VideoChatRoomComponent ]
+      declarations: [VideoChatRoomComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

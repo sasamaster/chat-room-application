@@ -18,45 +18,45 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService,) { }
+    private authenticationService: AuthenticationService, ) { }
 
   ngOnInit() {
-    
-  this.loginForm = this.formBuilder.group({
-    username: ['', Validators.required],
-    password: ['', Validators.required]
-  });
 
-// reset login status
-this.authenticationService.logout();
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
 
-// get return url from route parameters or default to '/'
-this.return = this.route.snapshot.queryParams['return'] || '/chat-room';
+    // reset login status
+    this.authenticationService.logout();
 
-}
-get f() { return this.loginForm.controls; }
-onSubmit(){
-  this.submitted = true;
+    // get return url from route parameters or default to '/'
+    this.return = this.route.snapshot.queryParams['return'] || '/chat-room';
 
-  // stop here if form is invalid
-  if (this.loginForm.invalid) {
-    console.log('Form is invalid');
-      return;     
   }
+  get f() { return this.loginForm.controls; }
+  onSubmit() {
+    this.submitted = true;
 
-  this.loading = true;
-  console.log('Subscribed to login');
+    // stop here if form is invalid
+    if (this.loginForm.invalid) {
+      console.log('Form is invalid');
+      return;
+    }
 
-  this.authenticationService.login(this.f.username.value, this.f.password.value)
+    this.loading = true;
+    console.log('Subscribed to login');
+
+    this.authenticationService.login(this.f.username.value, this.f.password.value)
       .pipe(first())
       .subscribe(
-          data => {
-            
-              this.router.navigate([this.return]);
-             
-          },
-          error => {
-              this.loading = false;
-          });
-        }
-      }
+        data => {
+
+          this.router.navigate([this.return]);
+
+        },
+        error => {
+          this.loading = false;
+        });
+  }
+}

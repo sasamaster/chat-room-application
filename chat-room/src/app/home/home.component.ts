@@ -4,11 +4,11 @@ import { User } from '../models';
 import { UserService } from '../services';
 
 @Component({
-  templateUrl: './home.component.html'
+    templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
 
-  currentUser: User;
+    currentUser: User;
     users: User[] = [];
 
     constructor(private userService: UserService) {
@@ -20,14 +20,14 @@ export class HomeComponent implements OnInit {
     }
 
     deleteUser(id: number) {
-        this.userService.delete(id).pipe(first()).subscribe(() => { 
-            this.loadAllUsers() 
+        this.userService.delete(id).pipe(first()).subscribe(() => {
+            this.loadAllUsers()
         });
     }
 
     private loadAllUsers() {
-        this.userService.getAll().pipe(first()).subscribe(users => { 
-            this.users = users; 
+        this.userService.getAll().pipe(first()).subscribe(users => {
+            this.users = users;
         });
     }
 

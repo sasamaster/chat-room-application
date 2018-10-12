@@ -7,26 +7,26 @@ import { WebcamUtil } from '../util/webcam.util';
 })
 export class VideoChatRoomComponent implements OnInit {
   public showWebcam = true;
- 
+
   constructor() { }
 
   ngOnInit() {
     WebcamUtil.getAvailableVideoInputs()
       .then((mediaDevices: MediaDeviceInfo[]) => {
-       
+
       });
   }
   expanded = false;
   start() {
     this.showWebcam = true;
-    this.expanded = false; 
+    this.expanded = false;
   }
-   
-    stop() {
-      this.showWebcam = false;
-      this.expanded = true;
-    }
-    public toggleWebcam(): void {
-      this.showWebcam = !this.showWebcam;
-    }
+
+  stop() {
+    this.showWebcam = false;
+    this.expanded = true;
   }
+  public toggleWebcam(): void {
+    this.showWebcam = !this.showWebcam;
+  }
+}
