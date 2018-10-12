@@ -6,15 +6,18 @@ import { AuthGuard } from './guards';
 
 
 const appRoutes: Routes = [
-    
-    { path: '', component: HomeComponent, canActivate: [AuthGuard]} ,
     { path: 'login', component: LoginComponent },
-    { path: 'chat-room', component: VideoChatRoomComponent, canActivate: [AuthGuard]},
+    {
+        path: '',
+        canActivate: [AuthGuard],
+        children: [
+            { path: 'chat-room', component: VideoChatRoomComponent },
+            { path: '', component: HomeComponent, pathMatch: 'full' },
+        ]
+    },
 
     // otherwise redirect to home
-     { path: '**', redirectTo: ''},
-    
-    
+    { path: '**', redirectTo: ''},
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

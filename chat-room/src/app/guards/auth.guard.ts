@@ -7,15 +7,11 @@ export class AuthGuard implements CanActivate {
     constructor(private router: Router) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        if (localStorage.getItem('currentUser')) {
-            // logged in so return true
-         //this.router.navigate(['/chat-room'], { queryParams: { returnUrl: state.url }});
-            return true;
-            
+        if (!localStorage.getItem('currentUser')) {
+            this.router.navigate(['/login'], { queryParams: { return: state.url }});
+            return false;
         }
 
-        // not logged in so redirect to login page with the return url
-        this.router.navigate(['/login'], { queryParams: { return: state.url }});
-        return false;
+        return true;
     }
 }
